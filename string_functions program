@@ -11,9 +11,67 @@ def string_capatalize(user_string):
     result = user_string.capitalize()
     return result
 
-def string_find(a,b,c):
+def string_find(user_string):
+    print("maximum length of your string is:", string_length(user_string))
+    while True:
+        a = input('enter the sub word: ')
+        if a in user_string:
+            break
+        else:
+            print(f"you've entered a word: {a}, which is not present in {user_string}\nCheck and try again...")
+            continue
+    while True:
+        b = int(input('enter the first point(from which the search begins): '))
+        if b <= len(user_string):
+            break
+        else:
+            print(f"Error...\nYou've entered a number: {b}, which is not less than your actual lenth of the string.\nplease check and try again...")
+            continue
+    while True:
+        c = int(input(f'enter the end point till you wanted to seach.'))
+        if c <= len(user_string):
+            break
+        else:
+            print(f"you've entered a word: {a}, which is not present in {user_string}\nCheck and try again...")
+            continue
+    result = user_string.find(a,b,c)
+    if result == -1:
+        print(f'sub: {a} is not found in the given string.')
+    else:
+        print(f'the position of the sub: {a} in string is {result}')
 
+def string_isalnum(user_string):
+    if user_string.isalnum():
+        result = 'the string is an alphanumeric.'
+    else:
+        result = 'the string is not an alphanumeric.'
+        return result
 
+def string_count(user_string):
+    print("maximum length of your string is:", string_length(user_string))
+    while True:
+        a = input('enter the sub string: ')
+        if a in user_string:
+            break
+        else:
+            print(f"you've entered a word: {a}, which is not present in the given string.\nCheck and try again...")
+            continue
+    while True:
+        b = int(input('enter the first point(from which the search begins): '))
+        if b <= len(user_string):
+            break
+        else:
+            print(f"Error...\nYou've entered a number: {b}, which is not less than your actual lenth of the string.\nplease check and try again...")
+            continue
+    while True:
+        c = int(input(f'enter the end point till you wanted to seach.'))
+        if c <= len(user_string):
+            break
+        else:
+            print(f"you've entered a word: {c}, which is not present in the given string.\nCheck and try again...")
+            continue
+    result = f'the word: {a}, comes:', user_string.count(a,b,c),"times"
+    return result
 
 user_string = get_user_string()
 
@@ -23,45 +81,35 @@ while True:
         """
     Enter your choice--->
 
-    1--    length of any sentence.
+    1--    length of string.
     2--    word's first place value.
     3--    capitalize any string.
     4--    alphanumeric check.
-    5--    to enter a new string.
+    5--    count sub string in string.
+    6--    Break the program.
     """
     )
 
     choice = int(input('enter your choice: '))
     if choice == 1:
         result = string_length(user_string)
-        print(result)
+        print(f"the lengtth of the string is {result}")
 
     elif choice == 3:
         result = string_capatalize(user_string)
         print(result)
         
     elif choice == 2:
-        print("maximum length of your string is:", string_length(user_string))
-        while True:
-            a = input('enter the sub word: ')
-            if a in user_string:
-                break
-            else:
-                print(f"you've entered a word: {a}, which is not present in {user_string}\nCheck and try again...")
-                continue
-        while True:
-            b = int(input('enter the first point(from which the search begins): '))
-            if a <= len(user_string):
-                break
-            else:
-                print(f"Error...\nYou've entered a number: {b}, which is not less than your actual lenth of the string.\nplease check and try again...")
-                continue
-        while True:
-            c = int(input(f'enter the end point till you wanted to seach.'))
-            if a <= len(user_string):
-                break
-            else:
-                print(f"you've entered a word: {a}, which is not present in {user_string}\nCheck and try again...")
-                continue
-            
+        string_find(user_string)
     
+    elif choice == 4:
+        result = string_isalnum(user_string)
+
+    elif choice == 5:
+        result = string_count(user_string)
+    
+    elif choice == 6:
+        break
+    
+    else:
+        print("you've entered the wrong input\ntry again...")
