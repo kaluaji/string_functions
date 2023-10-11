@@ -1,0 +1,67 @@
+def get_user_string():
+    user_string = input('enter your string: ')
+    return user_string
+
+
+def string_length(user_string):
+    result = len(user_string)
+    return result
+
+def string_capatalize(user_string):
+    result = user_string.capitalize()
+    return result
+
+def string_find(a,b,c):
+
+
+
+user_string = get_user_string()
+
+while True:
+    
+    print(
+        """
+    Enter your choice--->
+
+    1--    length of any sentence.
+    2--    word's first place value.
+    3--    capitalize any string.
+    4--    alphanumeric check.
+    5--    to enter a new string.
+    """
+    )
+
+    choice = int(input('enter your choice: '))
+    if choice == 1:
+        result = string_length(user_string)
+        print(result)
+
+    elif choice == 3:
+        result = string_capatalize(user_string)
+        print(result)
+        
+    elif choice == 2:
+        print("maximum length of your string is:", string_length(user_string))
+        while True:
+            a = input('enter the sub word: ')
+            if a in user_string:
+                break
+            else:
+                print(f"you've entered a word: {a}, which is not present in {user_string}\nCheck and try again...")
+                continue
+        while True:
+            b = int(input('enter the first point(from which the search begins): '))
+            if a <= len(user_string):
+                break
+            else:
+                print(f"Error...\nYou've entered a number: {b}, which is not less than your actual lenth of the string.\nplease check and try again...")
+                continue
+        while True:
+            c = int(input(f'enter the end point till you wanted to seach.'))
+            if a <= len(user_string):
+                break
+            else:
+                print(f"you've entered a word: {a}, which is not present in {user_string}\nCheck and try again...")
+                continue
+            
+    
